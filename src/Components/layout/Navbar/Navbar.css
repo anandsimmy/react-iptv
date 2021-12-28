@@ -1,3 +1,43 @@
 .navbarWrapper {
-    
+    display: flex;
+    width: 100%;
+    border-bottom: 2px solid white;
+    align-items: center;
+}
+
+.logoImage {
+    height: auto;
+    width: 150px;
+}
+
+.linksAndSearchWrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    width: 100%;
+}
+
+.linksWrapper {
+    display: flex;
+    width: 100%;
+}
+
+.linkItem {
+    color: white;
+    font-weight: 500;
+    font-size: 24px;
+    padding: 30px 105px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.linkItem:hover,
+.linkItem:active,
+.linkItem:focus {
+    background-color: #514f4f;
+    border-bottom: 3px solid crimson;
+    outline: none;
 }
