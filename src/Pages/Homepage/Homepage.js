@@ -38,7 +38,7 @@ const Homepage = () => {
                 </div>
                 <div className='channelsView'>
                     {
-                        Array(18).fill(0).map((channelItem, index) => {
+                        Array(28).fill(0).map((channelItem, index) => {
                             return (
                                 <div className='channelItem'>
                                     <img tabIndex={0} className='channelItemImage' src={getImageSrc(index)} alt='channelImage' />

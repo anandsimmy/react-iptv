@@ -54,9 +54,9 @@
 }
 
 .channelItemImage {
-    /* height: 180px; */
+    height: 160px;
     width: 160px;
-    aspect-ratio: 1 / 1;
+    /* aspect-ratio: 1 / 1; */
     border: 2px solid transparent;
     border-radius: 15px;
 }
