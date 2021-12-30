@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../Components/layout/Navbar/Navbar';
 import iptv1 from '../../Assets/images/img1.png';
 import iptv2 from '../../Assets/images/img2.png';
@@ -38,11 +39,11 @@ const Homepage = () => {
                 </div>
                 <div className='channelsView'>
                     {
-                        Array(28).fill(0).map((channelItem, index) => {
+                        Array(27).fill(0).map((channelItem, index) => {
                             return (
-                                <div className='channelItem'>
+                                <Link to={`/channel?index=${index}`} key={index} className='channelItem'>
                                     <img tabIndex={0} className='channelItemImage' src={getImageSrc(index)} alt='channelImage' />
-                                </div>
+                                </Link>
                             )
                         })
                     }
