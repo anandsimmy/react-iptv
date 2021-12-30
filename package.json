@@ -1,5 +1,5 @@
 {
-  "name": "tizen-first-app",
+  "name": "react-iptv",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
@@ -7,17 +7,23 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "@videojs/http-streaming": "^2.13.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hls-player": "^3.0.7",
+    "react-player": "^2.9.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "video.js": "^7.0.0",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
