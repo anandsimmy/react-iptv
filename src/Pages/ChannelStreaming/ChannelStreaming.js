@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import ReactPlayer from 'react-player';
 import videojs from 'video.js';
 // import hls from '@videojs/http-streaming';
-import "video.js/dist/video-js.css";
+// import "video.js/dist/video-js.css";
 import './ChannelStreaming.css';
 
 const ChannelStreaming = (props) => {
@@ -31,42 +31,36 @@ const ChannelStreaming = (props) => {
     //   }
     // }, [videoRef]);
     
-    useEffect(() => {
-        // make sure Video.js player is only initialized once
-        if (!playerRef.current) {
-          const videoElement = videoRef.current;
-          if (!videoElement) return;
+    // useEffect(() => {
+    //     // make sure Video.js player is only initialized once
+    //     if (!playerRef.current) {
+    //       const videoElement = videoRef.current;
+    //       if (!videoElement) return;
     
-          const player = playerRef.current = videojs(videoElement, { 
-              autoplay: true,
-              controls: true,
-              responsive: true,
-              fluid: true,
-              muted: true,
-              html5: {
-                vhs: {
-                }
-              },
-              sources: [{
-                  src: 'http://210.210.155.35/qwr9ew/s/s50/index2.m3u8',
-                  type: 'application/x-mpegURL',
-              }]
-            }, () => {
-              console.log("player is ready");
-          });
-        }
-      }, [videoRef]);
+    //       const player = playerRef.current = videojs(videoElement, { 
+    //           autoplay: true,
+    //           controls: true,
+    //           responsive: true,
+    //           fluid: true,
+    //           muted: true,
+    //           sources: [{
+    //               src: 'http://forevertv.me:8080/anand615/pass123/142784',
+    //               type: 'application/x-mpegURL',
+    //           }]
+    //         }, () => {
+    //           console.log("player is ready");
+    //       });
+    //     }
+    //   }, [videoRef]);
   
     // Dispose the Video.js player when the functional component unmounts
     useEffect(() => {
-      const player = playerRef.current;
-  
-      return () => {
-        if (player) {
-          player.dispose();
-          playerRef.current = null;
-        }
-      };
+      const hls = new Hls();
+      hls.loadSource('https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8');
+      hls.attachMedia(videoRef.current);
+      hls.on(Hls.Events.MANIFEST_PARSED,function() {
+      videoRef.current.play();
+  });
     }, [playerRef]);
 
     return (
@@ -80,7 +74,11 @@ const ChannelStreaming = (props) => {
                 width='100%'
                 height='100%'
             /> */}
-            <video ref={videoRef} className="video-js vjs-big-play-centered" />
+        <video ref={videoRef} className="video-js vjs-big-play-centered" />
+        <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="268" 
+  data-setup='{}'>
+    <source src="http://210.210.155.35/qwr9ew/s/s50/index.m3u8" type='application/x-mpegURL'></source>
+  </video>
         </div>
     )
 }
