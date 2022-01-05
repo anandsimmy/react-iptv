@@ -35,7 +35,7 @@ const ChannelStreaming = (props) => {
         <div className='channelStreamingWrapper'>
             <ReactPlayer
                 className="player-wrapper"
-                url='http://forevertv.me:8080/anand615/pass123/142784'
+                // url='http://forevertv.me:8080/anand615/pass123/142784'
                 controls
                 autoPlay
                 playing
