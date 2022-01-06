@@ -11,7 +11,7 @@ const ChannelStreaming = (props) => {
     useEffect(() => {
         // make sure Video.js player is only initialized once
         if (!playerRef.current) {
-          // const videoElement = videoRef.current;
+          const videoElement = videoRef.current;
           if (!videoElement) return;
     
           const player = playerRef.current = videojs(videoElement, { 
