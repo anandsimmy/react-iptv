@@ -1,40 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import ReactHlsPlayer from 'react-hls-player';
 import './ChannelStreaming.css';
 
-const ChannelStreaming = (props) => {
+const ChannelStreaming = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   console.log('searchParams', searchParams.get('channelUrl'));
 
   return (
     <div className='channelStreamingWrapper'>
-      <ReactHlsPlayer
-        src={
-          searchParams.get('channelUrl') ||
-          'http://forevertv.me:8080/anand615/pass123/142784'
-        }
-        autoPlay={false}
-        controls={true}
-        width='100%'
-        height='auto'
-        muted
-      />
-      ,
-      {/* <ReactPlayer
+      <ReactPlayer
         className='player-wrapper'
         url={
-          searchParams.get('channelUrl') ||
-          'http://forevertv.me:8080/anand615/pass123/142784'
+          !searchParams.get('channelUrl') ||
+          'http://210.210.155.35/qwr9ew/s/s50/index.m3u8'
         }
         controls
         autoPlay
-        playing
         muted
+        playing
         width='100%'
         height='100%'
-      /> */}
+      />
     </div>
   );
 };
