@@ -1,18 +1,15 @@
 {
   "files": {
-    "main.css": "/react-iptv/static/css/main.5b7167b6.css",
-    "main.js": "/react-iptv/static/js/main.22f94927.js",
+    "main.css": "/react-iptv/static/css/main.a553f220.css",
+    "main.js": "/react-iptv/static/js/main.b8163e54.js",
     "static/js/787.74220327.chunk.js": "/react-iptv/static/js/787.74220327.chunk.js",
-    "static/media/img3.png": "/react-iptv/static/media/img3.1310e9233489ea29b221.png",
-    "static/media/img4.png": "/react-iptv/static/media/img4.135bf1cf7a25e50932b5.png",
-    "static/media/img2.png": "/react-iptv/static/media/img2.5f00a3df7409417c356f.png",
     "index.html": "/react-iptv/index.html",
-    "main.5b7167b6.css.map": "/react-iptv/static/css/main.5b7167b6.css.map",
-    "main.22f94927.js.map": "/react-iptv/static/js/main.22f94927.js.map",
+    "main.a553f220.css.map": "/react-iptv/static/css/main.a553f220.css.map",
+    "main.b8163e54.js.map": "/react-iptv/static/js/main.b8163e54.js.map",
     "787.74220327.chunk.js.map": "/react-iptv/static/js/787.74220327.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b7167b6.css",
-    "static/js/main.22f94927.js"
+    "static/css/main.a553f220.css",
+    "static/js/main.b8163e54.js"
   ]
 }
