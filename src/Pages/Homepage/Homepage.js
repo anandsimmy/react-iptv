@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Components/layout/Navbar/Navbar';
-import iptv1 from '../../Assets/images/img1.png';
-import iptv2 from '../../Assets/images/img2.png';
-import iptv3 from '../../Assets/images/img3.png';
-import iptv4 from '../../Assets/images/img4.png';
-import './Homepage.css';
 import { channelList } from '../../Assets/ChannelList';
-console.log('channelList', channelList);
+import './Homepage.css';
 
 const Homepage = () => {
-  const getImageSrc = (index) => {
-    const imageIndex = index % 4;
-    switch (imageIndex) {
-      case 0:
-        return iptv1;
-      case 1:
-        return iptv2;
-      case 2:
-        return iptv3;
-      default:
-        return iptv4;
-    }
-  };
-
   return (
     <div className='homepageWrapper'>
       <Navbar />
