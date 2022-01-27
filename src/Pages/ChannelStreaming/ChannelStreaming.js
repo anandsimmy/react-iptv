@@ -12,12 +12,10 @@ const ChannelStreaming = () => {
       <ReactPlayer
         className='player-wrapper'
         url={
-          !searchParams.get('channelUrl') ||
+          searchParams.get('channelUrl') ||
           'http://210.210.155.35/qwr9ew/s/s50/index.m3u8'
         }
-        controls
         autoPlay
-        muted
         playing
         width='100%'
         height='100%'
