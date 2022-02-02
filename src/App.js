@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
         <Routes>
           <Route path='/channel' element={<ChannelStreaming />} />
