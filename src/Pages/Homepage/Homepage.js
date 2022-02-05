@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SpatialNavigation, { Focusable } from 'react-js-spatial-navigation';
+import SpatialNavigation, {
+  Focusable,
+  FocusableSection,
+} from 'react-js-spatial-navigation';
 import Navbar from '../../Components/layout/Navbar/Navbar';
 import { channelList } from '../../Assets/ChannelList';
 import defaultChannelImage from '../../Assets/images/img1.png';
@@ -8,6 +11,19 @@ import './Homepage.css';
 
 const Homepage = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    var backEvent = function (e) {
+      console.log('back event', e);
+      if (e.keyName === 'back') {
+        window.history.back();
+      }
+    };
+
+    // add eventListener for tizenhwkey (Back Button)
+    window.addEventListener('tizenhwkey', backEvent, false);
+  }, []);
+
   return (
     <div className='homepageWrapper'>
       <SpatialNavigation>
@@ -15,36 +31,38 @@ const Homepage = () => {
         <section className='contentWrapper'>
           <div className='channelListWrapper'>
             <ul className='channelList'>
-              <Focusable>
-                <li tabIndex={0} className='channelListItem'>
-                  All
-                </li>
-              </Focusable>
-              <Focusable>
-                <li tabIndex={0} className='channelListItem'>
-                  Kurdish
-                </li>
-              </Focusable>
-              <Focusable>
-                <li tabIndex={0} className='channelListItem'>
-                  Arabic
-                </li>
-              </Focusable>
-              <Focusable>
-                <li tabIndex={0} className='channelListItem'>
-                  Turkish
-                </li>
-              </Focusable>
-              <Focusable>
-                <li tabIndex={0} className='channelListItem'>
-                  English
-                </li>
-              </Focusable>
-              <Focusable>
-                <li tabIndex={0} className='channelListItem'>
-                  French
-                </li>
-              </Focusable>
+              <FocusableSection>
+                <Focusable>
+                  <li tabIndex={0} className='channelListItem'>
+                    All
+                  </li>
+                </Focusable>
+                <Focusable>
+                  <li tabIndex={0} className='channelListItem'>
+                    Kurdish
+                  </li>
+                </Focusable>
+                <Focusable>
+                  <li tabIndex={0} className='channelListItem'>
+                    Arabic
+                  </li>
+                </Focusable>
+                <Focusable>
+                  <li tabIndex={0} className='channelListItem'>
+                    Turkish
+                  </li>
+                </Focusable>
+                <Focusable>
+                  <li tabIndex={0} className='channelListItem'>
+                    English
+                  </li>
+                </Focusable>
+                <Focusable>
+                  <li tabIndex={0} className='channelListItem'>
+                    French
+                  </li>
+                </Focusable>
+              </FocusableSection>
             </ul>
           </div>
           <div className='channelsView'>
