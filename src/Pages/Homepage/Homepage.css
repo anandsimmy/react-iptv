@@ -25,7 +25,7 @@
     font-size: 24px;
     padding: 30px 20px;
     cursor: pointer;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     border-radius: 5px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -35,7 +35,15 @@
 .channelListItem:active,
 .channelListItem:focus {
     background-color: #514f4f;
-    border-bottom: 3px solid crimson;
+    border-bottom: 2px solid crimson;
+    outline: none;
+}
+
+.channelList .focusable:focus-visible .channelListItem,
+.channelList .focusable:focus-within .channelListItem,
+.channelList .focusable:focus .channelListItem  {
+    background-color: #514f4f;
+    border-bottom: 2px solid crimson;
     outline: none;
 }
 
@@ -43,27 +51,46 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-    max-height: 700px;
-    justify-content: space-around;
+    padding: 0 5px;
+    height: calc(100vh - 200px);
+}
+
+.channelsView .focusable {
+    border: 2px solid transparent;
+    border-radius: 15px; 
+}
+
+.focusable:focus-visible,
+.focusable:focus-within,
+.focusable:focus {
+    outline: none;
+}
+
+.channelsView .focusable:focus-visible .channelItem,
+.channelsView .focusable:focus-within .channelItem,
+.channelsView .focusable:focus .channelItem {
+    border: 2px solid crimson;
+    outline: none;
 }
 
 .channelItem {
+    display: block;
     height: auto;
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 15px;
 }
 
 .channelItemImage {
     height: 160px;
     width: 160px;
-    /* aspect-ratio: 1 / 1; */
-    border: 2px solid transparent;
-    border-radius: 15px;
+    object-fit: contain;
 }
 
-.channelItemImage:hover,
-.channelItemImage:active,
-.channelItemImage:focus {
+.channelItem:hover,
+.channelItem:active,
+.channelItem:focus{
     border: 2px solid crimson;
     outline: none;
 }
