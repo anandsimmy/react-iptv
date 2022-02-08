@@ -14,7 +14,7 @@ const Homepage = () => {
 
   useEffect(() => {
     var backEvent = function (e) {
-      console.log('back event', e);
+      // console.log('back event', e);
       if (e.keyName === 'back') {
         window.history.back();
       }
