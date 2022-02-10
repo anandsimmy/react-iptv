@@ -24,6 +24,12 @@ const Homepage = () => {
     window.addEventListener('tizenhwkey', backEvent, false);
   }, []);
 
+  useEffect(() => {
+    const event = new Event('tizenhwkey');
+
+    window.dispatchEvent(event);
+  }, []);
+
   return (
     <div className='homepageWrapper'>
       <SpatialNavigation>
