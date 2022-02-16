@@ -13,21 +13,18 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    var backEvent = function (e) {
-      console.log('back event', e);
+    const backEvent = function (e) {
       if (e.keyName === 'back') {
+        console.log('back event', e, window.location.href);
         window.history.back();
       }
     };
 
     // add eventListener for tizenhwkey (Back Button)
-    window.addEventListener('tizenhwkey', backEvent, false);
-  }, []);
-
-  useEffect(() => {
-    const event = new Event('tizenhwkey');
-
-    window.dispatchEvent(event);
+    window.addEventListener('tizenhwkey', backEvent);
+    return () => {
+      window.removeEventListener('tizenhwkey', backEvent);
+    };
   }, []);
 
   return (
@@ -88,6 +85,7 @@ const Homepage = () => {
                       navigate(`/channel?channelUrl=${channelItem.url}`);
                     }}
                     className='channelItem'
+                    title={channelItem.url}
                   >
                     <img
                       className='channelItemImage'
