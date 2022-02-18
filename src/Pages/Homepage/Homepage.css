@@ -33,10 +33,13 @@
 
 .channelListItem:hover,
 .channelListItem:active,
-.channelListItem:focus {
-    background-color: #514f4f;
-    border-bottom: 2px solid crimson;
-    outline: none;
+.channelListItem:focus,
+.channelListItem:focus-visible,
+.section-1:focus,
+.section-1:focus-visible,
+.section-1:focus-within {
+    /* border-bottom: 2px solid crimson;
+    outline: none; */
 }
 
 .channelList .focusable:focus-visible .channelListItem,
@@ -47,17 +50,27 @@
     outline: none;
 }
 
+.channelList .section-1:focus {
+    outline: 2px solid crimson;
+    background-color: #514f4f;
+}
+
+
 .channelsView {
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-    padding: 0 5px;
+    padding: 5px;
     height: calc(100vh - 200px);
 }
 
 .channelsView .focusable {
     border: 2px solid transparent;
     border-radius: 15px; 
+}
+
+.channelsView .focusable:focus {
+    outline: 2px solid crimson; 
 }
 
 .focusable:focus-visible,
@@ -69,7 +82,7 @@
 .channelsView .focusable:focus-visible .channelItem,
 .channelsView .focusable:focus-within .channelItem,
 .channelsView .focusable:focus .channelItem {
-    border: 2px solid crimson;
+    /* border: 2px solid crimson; */
     outline: none;
 }
 
