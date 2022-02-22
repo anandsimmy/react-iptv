@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import './ChannelStreaming.css';
 
 const ChannelStreaming = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(true);
   console.log('searchParams', searchParams.get('channelUrl'));
 
   useEffect(() => {
@@ -27,14 +28,33 @@ const ChannelStreaming = () => {
       <ReactPlayer
         className='player-wrapper'
         url={
-          !searchParams.get('channelUrl') ||
+          searchParams.get('channelUrl') ||
           'http://forevertv.me:8080/movie/anand615/pass123/47041.mp4'
         }
         autoPlay
         playing
         width='100%'
         height='100%'
+        onBuffer={() => {
+          console.log('buffer');
+          setLoading(true);
+        }}
+        onBufferEnd={() => {
+          console.log('bufferEnd');
+          loading && setLoading(false);
+        }}
+        onPlay={() => {
+          console.log('play');
+          loading && setLoading(false);
+        }}
       />
+      {loading && (
+        <div className='loaderContainer'>
+          <div class='fa-3x'>
+            <i class='fas fa-spinner fa-pulse'></i>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
