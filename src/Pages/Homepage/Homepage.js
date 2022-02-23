@@ -27,6 +27,10 @@ const Homepage = () => {
     };
   }, []);
 
+  const filterHandler = (val) => {
+    console.log('val', val);
+  };
+
   return (
     <div className='homepageWrapper'>
       <SpatialNavigation>
