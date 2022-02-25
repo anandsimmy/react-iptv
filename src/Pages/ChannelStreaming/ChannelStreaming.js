@@ -29,7 +29,7 @@ const ChannelStreaming = () => {
         className='player-wrapper'
         url={
           searchParams.get('channelUrl') ||
-          'http://forevertv.me:8080/movie/anand615/pass123/47041.mp4'
+          'http://forevertv.me:8080/movie/anand615/pass123/87757.mp4'
         }
         autoPlay
         playing
@@ -50,8 +50,8 @@ const ChannelStreaming = () => {
       />
       {loading && (
         <div className='loaderContainer'>
-          <div class='fa-3x'>
-            <i class='fas fa-spinner fa-pulse'></i>
+          <div className='fa-3x'>
+            <i className='fas fa-spinner fa-pulse'></i>
           </div>
         </div>
       )}
