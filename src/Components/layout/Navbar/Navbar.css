@@ -17,9 +17,9 @@
     width: 100%;
 }
 
-.linksWrapper {
+.linksWrapper div{
     display: flex;
-    width: 100%;
+    width: 360px;
 }
 
 .linkItem {
@@ -28,16 +28,24 @@
     font-size: 24px;
     padding: 30px 105px;
     cursor: pointer;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     border-radius: 5px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+}
+
+.section-1:hover linkItem,
+.section-1:active linkItem,
+.section-1:focus linkItem {
+    background-color: #514f4f;
+    border-bottom: 2px solid crimson;
+    outline: none;
 }
 
 .linkItem:hover,
 .linkItem:active,
 .linkItem:focus {
     background-color: #514f4f;
-    border-bottom: 3px solid crimson;
+    border-bottom: 2px solid crimson;
     outline: none;
 }
