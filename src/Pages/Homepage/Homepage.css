@@ -95,7 +95,8 @@
     border-radius: 15px;
 }
 
-.channelItemImage {
+.channelItemImage,
+.channelItem img {
     height: 160px;
     width: 160px;
     object-fit: contain;
