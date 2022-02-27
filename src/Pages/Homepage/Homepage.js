@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpatialNavigation, {
   Focusable,
   FocusableSection,
 } from 'react-js-spatial-navigation';
 import Navbar from '../../Components/layout/Navbar/Navbar';
+import Image from '../../Components/commons/Image/Image';
 import { channelList } from '../../Assets/ChannelList';
 import defaultChannelImage from '../../Assets/images/img1.png';
+import placeholderImage from '../../Assets/images/placeholder.png';
 import './Homepage.css';
 
 const Homepage = () => {
   const navigate = useNavigate();
+  const [channels, setChannels] = useState(channelList.items.slice(0));
 
   useEffect(() => {
     const backEvent = function (e) {
@@ -29,12 +32,16 @@ const Homepage = () => {
 
   const filterHandler = (val) => {
     console.log('val', val);
+    const newChannels = channelList.items.filter((item) => {
+      return item.raw.includes(val);
+    });
+    setChannels(newChannels);
   };
 
   return (
     <div className='homepageWrapper'>
       <SpatialNavigation>
-        <Navbar />
+        <Navbar filterHandler={filterHandler} />
         <section className='contentWrapper'>
           <div className='channelListWrapper'>
             <ul className='channelList'>
@@ -73,7 +80,7 @@ const Homepage = () => {
             </ul>
           </div>
           <div className='channelsView'>
-            {channelList.items.map((channelItem, index) => {
+            {channels.map((channelItem, index) => {
               return (
                 <Focusable
                   onFocus={() => {
@@ -91,15 +98,21 @@ const Homepage = () => {
                     className='channelItem'
                     title={channelItem.url}
                   >
-                    <img
+                    <Image
+                      url={channelItem.tvg.logo}
+                      altUrl={defaultChannelImage}
+                      alt='channelImage'
+                      placeholderImage={placeholderImage}
+                    />
+                    {/* <img
                       className='channelItemImage'
-                      src={channelItem.tvg.logo}
+                      src={channelItem.tvg.logo ?? defaultChannelImage}
                       alt='channelImage'
                       onError={({ currentTarget }) => {
                         currentTarget.onerror = null;
                         currentTarget.src = defaultChannelImage;
                       }}
-                    />
+                    /> */}
                   </span>
                 </Focusable>
               );
