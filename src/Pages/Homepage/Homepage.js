@@ -46,77 +46,67 @@ const Homepage = () => {
           <div className='channelListWrapper'>
             <ul className='channelList'>
               <FocusableSection>
-                <Focusable>
-                  <li tabIndex={0} className='channelListItem'>
-                    All
-                  </li>
+                <Focusable
+                  onClickEnter={() => {
+                    filterHandler('');
+                  }}
+                >
+                  <li className='channelListItem'>All</li>
                 </Focusable>
-                <Focusable>
-                  <li tabIndex={0} className='channelListItem'>
-                    Kurdish
-                  </li>
+                <Focusable
+                  onClickEnter={() => {
+                    filterHandler('EN');
+                  }}
+                >
+                  <li className='channelListItem'>English</li>
                 </Focusable>
-                <Focusable>
-                  <li tabIndex={0} className='channelListItem'>
-                    Arabic
-                  </li>
+                <Focusable
+                  onClickEnter={() => {
+                    filterHandler('China');
+                  }}
+                >
+                  <li className='channelListItem'>Chinese</li>
                 </Focusable>
-                <Focusable>
-                  <li tabIndex={0} className='channelListItem'>
-                    Turkish
-                  </li>
-                </Focusable>
-                <Focusable>
-                  <li tabIndex={0} className='channelListItem'>
-                    English
-                  </li>
-                </Focusable>
-                <Focusable>
-                  <li tabIndex={0} className='channelListItem'>
-                    French
-                  </li>
+                <Focusable
+                  onClickEnter={() => {
+                    filterHandler('French');
+                  }}
+                >
+                  <li className='channelListItem'>French</li>
                 </Focusable>
               </FocusableSection>
             </ul>
           </div>
           <div className='channelsView'>
-            {channels.map((channelItem, index) => {
-              return (
-                <Focusable
-                  onFocus={() => {
-                    // console.log('hi', channelItem);
-                  }}
-                  onClickEnter={() => {
-                    navigate(`/channel?channelUrl=${channelItem.url}`);
-                  }}
-                  key={index}
-                >
-                  <span
-                    onClick={() => {
+            {channels?.length ? (
+              channels.map((channelItem, index) => {
+                return (
+                  <Focusable
+                    onClickEnter={() => {
                       navigate(`/channel?channelUrl=${channelItem.url}`);
                     }}
-                    className='channelItem'
-                    title={channelItem.url}
+                    key={index}
                   >
-                    <Image
-                      url={channelItem.tvg.logo}
-                      altUrl={defaultChannelImage}
-                      alt='channelImage'
-                      placeholderImage={placeholderImage}
-                    />
-                    {/* <img
-                      className='channelItemImage'
-                      src={channelItem.tvg.logo ?? defaultChannelImage}
-                      alt='channelImage'
-                      onError={({ currentTarget }) => {
-                        currentTarget.onerror = null;
-                        currentTarget.src = defaultChannelImage;
+                    <span
+                      onClick={() => {
+                        navigate(`/channel?channelUrl=${channelItem.url}`);
                       }}
-                    /> */}
-                  </span>
-                </Focusable>
-              );
-            })}
+                      className='channelItem'
+                      title={channelItem.url}
+                    >
+                      <Image
+                        url={channelItem.tvg.logo}
+                        altUrl={defaultChannelImage}
+                        alt='channelImage'
+                        placeholderImage={placeholderImage}
+                      />
+                    </span>
+                  </Focusable>
+                );
+              })
+            ) : (
+              <div className='noResults'>Sorry, No Results Found!</div>
+            )}
           </div>
         </section>
       </SpatialNavigation>
