@@ -17,8 +17,13 @@
     width: 100%;
 }
 
+.linksWrapper {
+    margin-left: 200px;
+}
+
 .linksWrapper div{
     display: flex;
+    justify-content: center;
     width: 360px;
 }
 
@@ -34,9 +39,9 @@
     border-bottom-right-radius: 0;
 }
 
-.section-1:hover linkItem,
-.section-1:active linkItem,
-.section-1:focus linkItem {
+.section-1:hover .linkItem,
+.section-1:active .linkItem,
+.section-1:focus .linkItem {
     background-color: #514f4f;
     border-bottom: 2px solid crimson;
     outline: none;
