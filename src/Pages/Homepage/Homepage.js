@@ -9,6 +9,7 @@ import Image from '../../Components/commons/Image/Image';
 import { channelList } from '../../Assets/ChannelList';
 import defaultChannelImage from '../../Assets/images/img1.png';
 import placeholderImage from '../../Assets/images/placeholder.png';
+import List from 'react-virtualized/dist/commonjs/List';
 import './Homepage.css';
 
 const Homepage = () => {
@@ -51,28 +52,56 @@ const Homepage = () => {
                     filterHandler('');
                   }}
                 >
-                  <li className='channelListItem'>All</li>
+                  <li
+                    onClick={() => {
+                      filterHandler('');
+                    }}
+                    className='channelListItem'
+                  >
+                    All
+                  </li>
                 </Focusable>
                 <Focusable
                   onClickEnter={() => {
                     filterHandler('EN');
                   }}
                 >
-                  <li className='channelListItem'>English</li>
+                  <li
+                    onClick={() => {
+                      filterHandler('EN');
+                    }}
+                    className='channelListItem'
+                  >
+                    English
+                  </li>
                 </Focusable>
                 <Focusable
                   onClickEnter={() => {
                     filterHandler('China');
                   }}
                 >
-                  <li className='channelListItem'>Chinese</li>
+                  <li
+                    onClick={() => {
+                      filterHandler('China');
+                    }}
+                    className='channelListItem'
+                  >
+                    Chinese
+                  </li>
                 </Focusable>
                 <Focusable
                   onClickEnter={() => {
                     filterHandler('French');
                   }}
                 >
-                  <li className='channelListItem'>French</li>
+                  <li
+                    onClick={() => {
+                      filterHandler('');
+                    }}
+                    className='channelListItem'
+                  >
+                    French
+                  </li>
                 </Focusable>
               </FocusableSection>
             </ul>
@@ -83,13 +112,21 @@ const Homepage = () => {
                 return (
                   <Focusable
                     onClickEnter={() => {
-                      navigate(`/channel?channelUrl=${channelItem.url}`);
+                      navigate(
+                        `/channel?channelUrl=${window.encodeURIComponent(
+                          channelItem.url
+                        )}`
+                      );
                     }}
                     key={index}
                   >
                     <span
                       onClick={() => {
-                        navigate(`/channel?channelUrl=${channelItem.url}`);
+                        navigate(
+                          `/channel?channelUrl=${window.encodeURIComponent(
+                            channelItem.url
+                          )}`
+                        );
                       }}
                       className='channelItem'
                       title={channelItem.url}
