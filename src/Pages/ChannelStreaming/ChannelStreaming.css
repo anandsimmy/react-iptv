@@ -1,3 +1,22 @@
 .channelStreamingWrapper {
     height: 100vh;
 }
+
+.player-wrapper {
+    background-color: black;
+}
+
+.loaderContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2192f37a;
+    font-size: 48px;
+    height:100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.5);
+}

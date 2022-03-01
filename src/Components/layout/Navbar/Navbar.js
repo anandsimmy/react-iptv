@@ -15,25 +15,37 @@ const Navbar = ({ filterHandler }) => {
           <FocusableSection defaultElement='.tvChannels'>
             <Focusable
               onClickEnter={() => {
-                console.log('nav click 1');
                 filterHandler('channel');
               }}
               onFocus={() => {
                 console.log('nav focus 1');
               }}
             >
-              <div className='linkItem tvChannels'>TV Channels</div>
+              <div
+                onClick={() => {
+                  filterHandler('channel');
+                }}
+                className='linkItem tvChannels'
+              >
+                TV Channels
+              </div>
             </Focusable>
             <Focusable
               onClickEnter={() => {
-                console.log('nav click 2');
                 filterHandler('movie');
               }}
               onFocus={() => {
                 console.log('nav focus 2');
               }}
             >
-              <div className='linkItem'>Movies</div>
+              <div
+                onClick={() => {
+                  filterHandler('movie');
+                }}
+                className='linkItem'
+              >
+                Movies
+              </div>
             </Focusable>
           </FocusableSection>
         </div>

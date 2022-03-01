@@ -28,7 +28,7 @@ const ChannelStreaming = () => {
       <ReactPlayer
         className='player-wrapper'
         url={
-          searchParams.get('channelUrl') ||
+          window.decodeURIComponent(searchParams.get('channelUrl')) ||
           'http://forevertv.me:8080/movie/anand615/pass123/87757.mp4'
         }
         autoPlay

@@ -9,7 +9,6 @@ import Image from '../../Components/commons/Image/Image';
 import { channelList } from '../../Assets/ChannelList';
 import defaultChannelImage from '../../Assets/images/img1.png';
 import placeholderImage from '../../Assets/images/placeholder.png';
-import List from 'react-virtualized/dist/commonjs/List';
 import './Homepage.css';
 
 const Homepage = () => {
