@@ -96,7 +96,7 @@ const Homepage = () => {
                 >
                   <li
                     onClick={() => {
-                      filterHandler('');
+                      filterHandler('French');
                     }}
                     className='channelListItem'
                   >
